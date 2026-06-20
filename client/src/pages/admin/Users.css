@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+.us-banner, .us-stats, .us-table-card { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+/* ── BANNER ── */
+.us-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 100%);
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+}
+.us-banner__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+}
+.us-banner__sub {
+  color: #94A3B8;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ── STATS ── */
+.us-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.us-stat-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.us-stat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #EDE9FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.us-stat-card__icon--green { background: #DCFCE7; }
+.us-stat-card__icon--blue  { background: #DBEAFE; }
+
+.us-stat-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #0A1628;
+  margin: 0;
+}
+.us-stat-card p {
+  font-size: 12px;
+  color: #64748B;
+  margin: 2px 0 0;
+}
+
+/* ── TABLE CARD ── */
+.us-table-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px;
+}
+.us-table-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.us-table-card__header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: #0A1628;
+  margin: 0;
+}
+
+.us-search {
+  width: 280px !important;
+  border-radius: 8px !important;
+}
+
+.us-name  { font-weight: 500; color: #1E293B; }
+.us-email { color: #64748B; font-size: 13px; }
+
+/* ── ROLE PILL ── */
+.us-role-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.us-role-pill--doctor  { background: #DCFCE7; color: #15803D; }
+.us-role-pill--patient { background: #DBEAFE; color: #1D4ED8; }
+
+/* ── BLOCK BUTTON ── */
+.us-block-btn {
+  background: #FCEBEB;
+  color: #B91C1C;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.us-block-btn:hover { background: #FAD7D7; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .us-table-card__header { flex-direction: column; align-items: stretch; }
+  .us-search { width: 100% !important; }
+}

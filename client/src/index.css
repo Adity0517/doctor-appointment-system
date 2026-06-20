@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* loader */
+  .spinner {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.383);
+  }
+  
+  .form-btn {
+    width: 250px !important;
+    margin-top: 30px !important;
+  }
+
+    body{
+    background:
+    linear-gradient(
+      135deg,
+      #f5f7fa,
+      #e4e8f0
+    );
+}
+.notification-header{
+  text-align:center;
+  padding:20px;
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#0d6efd,#00c6ff);
+  color:white;
+  border-radius:15px;
+}
+
+.notification-header h2{
+  margin-bottom:5px;
+}
+
+.notification-card{
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.notification-card:hover{
+  transform:translateY(-3px);
+}
+
+.unread-card{
+  background:#eef6ff;
+  border-left:5px solid #0d6efd;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.read-card{
+  background:#f8f9fa;
+  border-left:5px solid #198754;
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.mark-read-btn{
+  background:#198754;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  font-weight:600;
+}
+
+.delete-btn{
+  background:#dc3545;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  font-weight:600;
+}
+
+.mark-read-btn:hover,
+.delete-btn:hover{
+  transform:scale(1.05);
+}
+.appointment-header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.appointment-header h1{
+  font-weight:700;
+  color:#0f172a;
+}
+
+.appointment-header p{
+  color:gray;
+}
+
+.appointment-stats{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.appointment-card{
+  background:white;
+  padding:20px;
+  width:220px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.appointment-card:hover{
+  transform:translateY(-8px);
+}
+
+.appointment-card h2{
+  color:#2563eb;
+  font-size:32px;
+}

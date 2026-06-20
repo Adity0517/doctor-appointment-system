@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+.da-header, .da-stats, .da-table-card { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+.da-header {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 100%);
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+}
+.da-header__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+}
+.da-header__sub {
+  color: #94A3B8;
+  font-size: 13px;
+  margin: 0;
+}
+
+.da-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.da-stat-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.da-stat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #E1F5EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.da-stat-card__icon--orange { background: #FEF3C7; }
+.da-stat-card__icon--green  { background: #DCFCE7; }
+
+.da-stat-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #0A1628;
+  margin: 0;
+}
+.da-stat-card p {
+  font-size: 12px;
+  color: #64748B;
+  margin: 2px 0 0;
+}
+
+.da-table-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.da-patient  { font-weight: 500; color: #1E293B; }
+.da-datetime { color: #1E293B; font-size: 13px; }
+
+.da-actions { display: flex; gap: 8px; }
+
+.da-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.da-btn--approve { background: #DCFCE7; color: #15803D; }
+.da-btn--approve:hover { background: #BBF7D0; }
+
+.da-btn--reject { background: #FCEBEB; color: #B91C1C; }
+.da-btn--reject:hover { background: #FAD7D7; }
+
+.da-status-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+.da-status-label--approved { background: #DCFCE7; color: #15803D; }
+.da-status-label--reject   { background: #FCEBEB; color: #B91C1C; }
+
+@media (max-width: 600px) {
+  .da-table-card { padding: 12px; overflow-x: auto; }
+}

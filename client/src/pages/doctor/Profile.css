@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+.pf-banner, .pf-card { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+/* ── BANNER ── */
+.pf-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 100%);
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+}
+.pf-banner__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+}
+.pf-banner__sub {
+  color: #94A3B8;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ── FORM CARD ── */
+.pf-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.pf-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: #0A1628;
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #E1F5EE;
+}
+
+.pf-card .ant-form-item-label > label {
+  font-weight: 500;
+  color: #475569;
+  font-size: 13px;
+}
+
+.pf-card .ant-input,
+.pf-input {
+  border-radius: 8px !important;
+  border-color: #E2E8F0 !important;
+  padding: 8px 12px !important;
+}
+.pf-card .ant-input:hover,
+.pf-card .ant-input:focus,
+.pf-input:hover {
+  border-color: #0EA5A0 !important;
+}
+
+/* ── SUBMIT BUTTON ── */
+.pf-btn-row {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pf-btn {
+  background: #0EA5A0;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.pf-btn:hover { background: #0F6E56; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .pf-card { padding: 18px; }
+  .pf-btn-row { justify-content: stretch; }
+  .pf-btn { width: 100%; }
+}

@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════
+   CARD CONTAINER
+═══════════════════════════════════════════════════ */
+.dl-card {
+  width: 320px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 12px;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.dl-card:hover {
+  transform: translateY(-4px);
+  border-color: #0EA5A0;
+  box-shadow: 0 12px 28px rgba(14, 165, 160, 0.14);
+}
+
+/* ═══════════════════════════════════════════════════
+   MEDIA (image + badges)
+═══════════════════════════════════════════════════ */
+.dl-card__media {
+  position: relative;
+  background: linear-gradient(135deg, #E1F5EE, #B8E2D8);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dl-card__img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
+}
+
+.dl-badge {
+  position: absolute;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.dl-badge--available {
+  top: 12px;
+  left: 12px;
+  background: #FFFFFF;
+  color: #16A34A;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dl-badge--rank {
+  top: 12px;
+  right: 12px;
+}
+.dl-badge--senior {
+  background: #FEF3C7;
+  color: #92400E;
+}
+.dl-badge--consultant {
+  background: #E0E7FF;
+  color: #3730A3;
+}
+
+/* ═══════════════════════════════════════════════════
+   HEADER (name + rating)
+═══════════════════════════════════════════════════ */
+.dl-card__header {
+  padding: 16px 16px 8px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.dl-card__name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0A1628;
+  margin: 0 0 6px;
+}
+
+.dl-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #F59E0B;
+  font-weight: 600;
+}
+.dl-card__reviews {
+  color: #94A3B8;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════════
+   BODY (info rows)
+═══════════════════════════════════════════════════ */
+.dl-card__body {
+  padding: 12px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dl-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+.dl-info-row__icon {
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER (fee + buttons)
+═══════════════════════════════════════════════════ */
+.dl-card__footer {
+  padding: 14px 16px 16px;
+  border-top: 1px solid #F1F5F9;
+  background: #FAFBFC;
+}
+
+.dl-card__fee {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.dl-card__fee-label {
+  font-size: 11px;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dl-card__fee-amount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0A1628;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.dl-card__btns {
+  display: flex;
+  gap: 8px;
+}
+
+.dl-btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dl-btn--outline {
+  background: transparent;
+  border: 1.5px solid #CBD5E1;
+  color: #475569;
+}
+.dl-btn--outline:hover {
+  border-color: #0EA5A0;
+  color: #0EA5A0;
+}
+
+.dl-btn--solid {
+  background: #0EA5A0;
+  color: #FFFFFF;
+}
+.dl-btn--solid:hover {
+  background: #0F6E56;
+}
+
+/* ═══════════════════════════════════════════════════
+   MODAL (View Details — antd Modal.info override)
+═══════════════════════════════════════════════════ */
+.dl-modal .ant-modal-confirm-body .ant-modal-confirm-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: #0A1628;
+}
+
+.dl-modal__body {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dl-modal__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 13.5px;
+}
+.dl-modal__row:last-child { border-bottom: none; }
+
+.dl-modal__label {
+  color: #64748B;
+  font-weight: 500;
+}
+.dl-modal__value {
+  color: #0A1628;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .dl-card { width: 100%; margin: 8px 0; }
+}

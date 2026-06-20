@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── CSS VARIABLES (light mode) ── */
+:root {
+  --lyt-bg:           #F0F4F8;
+  --lyt-sidebar-bg:   #0A1628;
+  --lyt-sidebar-w:    260px;
+  --lyt-header-h:     64px;
+  --lyt-accent:       #0EA5A0;
+  --lyt-accent-dark:  #0F6E56;
+  --lyt-text:         #1E293B;
+  --lyt-text-muted:   #64748B;
+  --lyt-border:       #E2E8F0;
+  --lyt-white:        #FFFFFF;
+  --lyt-header-bg:    #FFFFFF;
+  --lyt-body-bg:      #F0F4F8;
+  --lyt-nav-hover:    rgba(14, 165, 160, 0.10);
+  --lyt-nav-active:   rgba(14, 165, 160, 0.15);
+  --lyt-shadow:       0 1px 3px rgba(0,0,0,0.08);
+  --lyt-radius:       10px;
+}
+
+/* ── DARK MODE OVERRIDES ── */
+.lyt-dark {
+  --lyt-bg:           #0F172A;
+  --lyt-header-bg:    #1E293B;
+  --lyt-body-bg:      #0F172A;
+  --lyt-text:         #E2E8F0;
+  --lyt-text-muted:   #94A3B8;
+  --lyt-border:       #334155;
+  --lyt-white:        #1E293B;
+  --lyt-nav-hover:    rgba(14, 165, 160, 0.12);
+  --lyt-nav-active:   rgba(14, 165, 160, 0.20);
+  --lyt-shadow:       0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ═══════════════════════════════════════════════════
+   ROOT WRAPPER
+═══════════════════════════════════════════════════ */
+.lyt-root {
+  display: flex;
+  min-height: 100vh;
+  background: var(--lyt-body-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--lyt-text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── mobile overlay ── */
+.lyt-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════ */
+.lyt-sidebar {
+  width: var(--lyt-sidebar-w);
+  min-height: 100vh;
+  background: var(--lyt-sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+/* ── LOGO ── */
+.lyt-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px 16px;
+  position: relative;
+}
+.lyt-logo__icon { font-size: 1.5rem; }
+.lyt-logo__text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+.lyt-logo__accent { color: var(--lyt-accent); }
+
+/* close btn — mobile only */
+.lyt-sidebar__close {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* ── USER CARD (sidebar) ── */
+.lyt-user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.05);
+  margin: 0 12px 4px;
+  border-radius: var(--lyt-radius);
+}
+.lyt-user-card__info { overflow: hidden; }
+.lyt-user-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lyt-user-card__role {
+  font-size: 11px;
+  color: var(--lyt-accent);
+  margin-top: 2px;
+}
+
+/* ── DIVIDER ── */
+.lyt-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 10px 20px;
+}
+
+/* ── NAV ITEMS ── */
+.lyt-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 12px;
+}
+
+.lyt-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #94A3B8;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  transition: background 0.18s, color 0.18s;
+}
+.lyt-nav__item:hover {
+  background: var(--lyt-nav-hover);
+  color: #ffffff;
+}
+.lyt-nav__item--active {
+  background: var(--lyt-nav-active);
+  color: var(--lyt-accent);
+  font-weight: 600;
+}
+.lyt-nav__icon {
+  width: 18px;
+  text-align: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.lyt-nav__label { flex: 1; }
+
+/* active left bar */
+.lyt-nav__bar {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--lyt-accent);
+}
+
+/* ── LOGOUT ── */
+.lyt-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 26px;
+  margin: 6px 12px 0;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 107, 107, 0.1);
+  color: #FF6B6B;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+  width: calc(100% - 24px);
+}
+.lyt-logout:hover { background: rgba(255, 107, 107, 0.2); }
+
+/* ── SIDEBAR BRAND ── */
+.lyt-sidebar__brand {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* ── AVATAR ── */
+.lyt-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lyt-accent), var(--lyt-accent-dark));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.lyt-avatar--sm {
+  width: 34px;
+  height: 34px;
+  font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════
+   MAIN CONTENT AREA
+═══════════════════════════════════════════════════ */
+.lyt-main {
+  flex: 1;
+  margin-left: var(--lyt-sidebar-w);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+}
+
+/* ── HEADER ── */
+.lyt-header {
+  height: var(--lyt-header-h);
+  background: var(--lyt-header-bg);
+  border-bottom: 1px solid var(--lyt-border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--lyt-shadow);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.lyt-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--lyt-text-muted);
+  padding: 6px;
+}
+
+.lyt-header__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lyt-text);
+  flex: 1;
+}
+
+.lyt-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* icon buttons (dark toggle, bell) */
+.lyt-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--lyt-border);
+  background: transparent;
+  color: var(--lyt-text-muted);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+.lyt-icon-btn:hover {
+  background: var(--lyt-nav-hover);
+  color: var(--lyt-accent);
+}
+
+/* header user info */
+.lyt-header__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 4px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--lyt-border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lyt-header__user:hover { background: var(--lyt-nav-hover); }
+
+.lyt-header__user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.lyt-header__user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lyt-text);
+}
+.lyt-header__user-role {
+  font-size: 11px;
+  color: var(--lyt-accent);
+}
+
+/* ── BODY ── */
+.lyt-body {
+  flex: 1;
+  padding: 28px 28px;
+  background: var(--lyt-body-bg);
+  transition: background 0.3s;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE  (tablet & mobile)
+═══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* hide sidebar off-screen */
+  .lyt-sidebar {
+    transform: translateX(-100%);
+  }
+  .lyt-sidebar--open {
+    transform: translateX(0);
+  }
+  .lyt-sidebar__close { display: flex; }
+
+  /* overlay visible when sidebar open */
+  .lyt-sidebar--open ~ .lyt-main .lyt-overlay,
+  .lyt-overlay { display: block; }
+
+  /* main takes full width */
+  .lyt-main { margin-left: 0; }
+
+  /* show hamburger */
+  .lyt-hamburger { display: flex; }
+
+  /* hide user info text on small screens */
+  .lyt-header__user-info { display: none; }
+
+  .lyt-body { padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .lyt-header { padding: 0 14px; gap: 10px; }
+  .lyt-header__title { font-size: 14px; }
+}

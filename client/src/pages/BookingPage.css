@@ -1,0 +1,293 @@
+/* ═══════════════════════════════════════════════════
+   BookingPage.css
+   Import in BookingPage.jsx:  import "./BookingPage.css";
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+.bp-banner, .bp-page-title, .bp-container {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════
+   BANNER
+═══════════════════════════════════════════════════ */
+.bp-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 100%);
+  padding: 40px 32px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.bp-banner__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.7rem;
+  margin: 0 0 8px;
+}
+.bp-banner__sub {
+  color: #94A3B8;
+  font-size: 14px;
+  margin: 0;
+}
+
+.bp-page-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: #0A1628;
+  margin-bottom: 20px;
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTAINER — two column layout
+═══════════════════════════════════════════════════ */
+.bp-container {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.bp-left, .bp-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ═══════════════════════════════════════════════════
+   DOCTOR CARD
+═══════════════════════════════════════════════════ */
+.bp-doctor-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  position: relative;
+}
+
+.bp-doctor-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.bp-doctor-card__img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.bp-doctor-card__name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: #0A1628;
+  margin: 0 0 4px;
+}
+
+.bp-doctor-card__spec {
+  color: #0EA5A0;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+
+.bp-doctor-card__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #64748B;
+  padding: 10px 0;
+  border-top: 1px solid #F1F5F9;
+  text-align: left;
+}
+.bp-doctor-card__row strong { color: #0A1628; }
+
+/* ═══════════════════════════════════════════════════
+   INFO CARD
+═══════════════════════════════════════════════════ */
+.bp-info-card {
+  background: #F0F9F8;
+  border: 1.5px solid #CDEEE8;
+  border-radius: 14px;
+  padding: 20px;
+}
+.bp-info-card h5 {
+  font-size: 14px;
+  color: #0A1628;
+  margin: 0 0 12px;
+}
+.bp-info-card ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bp-info-card li {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════
+   FORM CARD
+═══════════════════════════════════════════════════ */
+.bp-form {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.bp-form__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+  margin: 0 0 20px;
+}
+
+.bp-form__row {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bp-form__row label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.bp-input {
+  width: 100% !important;
+  border-radius: 8px !important;
+  border: 1.5px solid #E2E8F0 !important;
+  padding: 8px 12px !important;
+}
+.bp-input:hover, .bp-input:focus {
+  border-color: #0EA5A0 !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   SUMMARY CARD
+═══════════════════════════════════════════════════ */
+.bp-summary {
+  background: #F8FAFB;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.bp-summary h4 {
+  font-size: 14px;
+  color: #0A1628;
+  margin: 0 0 12px;
+}
+.bp-summary__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 7px 0;
+  border-bottom: 1px dashed #E2E8F0;
+}
+.bp-summary__row:last-of-type { border-bottom: none; }
+.bp-summary__row span { color: #64748B; }
+.bp-summary__row strong { color: #0A1628; }
+
+.bp-status-badge {
+  margin-top: 12px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.bp-status-badge--available {
+  background: #DCFCE7;
+  color: #15803D;
+}
+.bp-status-badge--pending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+/* ═══════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════ */
+.bp-btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.bp-btn {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.bp-btn--outline {
+  background: transparent;
+  border: 1.5px solid #0A1628;
+  color: #0A1628;
+}
+.bp-btn--outline:hover {
+  background: #0A1628;
+  color: #fff;
+}
+
+.bp-btn--solid {
+  background: #0EA5A0;
+  color: #fff;
+}
+.bp-btn--solid:hover {
+  background: #0F6E56;
+}
+
+/* ═══════════════════════════════════════════════════
+   FLOATING SUPPORT BUTTON
+═══════════════════════════════════════════════════ */
+.bp-support-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0EA5A0;
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(14, 165, 160, 0.4);
+  z-index: 999;
+  transition: transform 0.15s, background 0.2s;
+}
+.bp-support-btn:hover {
+  transform: scale(1.08);
+  background: #0F6E56;
+}
+@media (max-width: 800px) {
+  .bp-container {
+    grid-template-columns: 1fr;
+  }
+  .bp-banner { padding: 28px 20px; }
+}

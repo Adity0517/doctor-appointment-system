@@ -1,0 +1,446 @@
+/* ═══════════════════════════════════════════════════
+   HomePage.css  —  HealthCare+ Doctor Appointment
+   Import in HomePage.jsx:  import "./HomePage.css";
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── RESET / BASE ── */
+.hp-hero, .hp-stats-bar, .hp-ticker,
+.hp-search-section, .hp-doctors-wrap,
+.hp-emergency-banner, .hp-section, .hp-footer {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
+.hp-hero {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 60%, #0A2030 100%);
+  padding: 64px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative circles */
+.hp-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(14, 165, 160, 0.07);
+  pointer-events: none;
+}
+.hp-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 107, 107, 0.05);
+  pointer-events: none;
+}
+
+.hp-hero__left {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+  z-index: 1;
+}
+
+/* live badge */
+.hp-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 165, 160, 0.15);
+  border: 1px solid rgba(14, 165, 160, 0.35);
+  color: #0EA5A0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+/* pulse dot */
+.hp-pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0EA5A0;
+  animation: hp-pulse 1.8s ease-in-out infinite;
+}
+@keyframes hp-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.65); }
+}
+
+.hp-hero__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+.hp-hero__accent { color: #0EA5A0; }
+
+.hp-hero__sub {
+  color: #94A3B8;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0 0 28px;
+}
+
+.hp-hero__btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hp-btn-primary {
+  background: #0EA5A0;
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, transform 0.15s;
+}
+.hp-btn-primary:hover {
+  background: #0F6E56;
+  transform: translateY(-1px);
+}
+
+.hp-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hp-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hp-hero__img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(14, 165, 160, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════════════ */
+.hp-stats-bar {
+  background: #ffffff;
+  border-bottom: 1.5px solid #E2E8F0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hp-stat-item {
+  padding: 20px 36px;
+  text-align: center;
+  border-right: 1px solid #E2E8F0;
+}
+.hp-stat-item:last-child { border-right: none; }
+
+.hp-stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0A1628;
+  line-height: 1;
+}
+.hp-stat-label {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 5px;
+}
+
+/* ═══════════════════════════════════════════════════
+   HEALTH TICKER
+═══════════════════════════════════════════════════ */
+.hp-ticker {
+  background: #0A1628;
+  color: #0EA5A0;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════════════════
+   SEARCH SECTION
+═══════════════════════════════════════════════════ */
+.hp-search-section {
+  background: #F8FAFB;
+  padding: 36px 48px 28px;
+  border-bottom: 1.5px solid #E2E8F0;
+}
+
+.hp-search-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.hp-search-count {
+  font-size: 13px;
+  color: #64748B;
+  margin: 4px 0 0;
+}
+
+.hp-search-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hp-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+  pointer-events: none;
+}
+
+.hp-search-input {
+  width: 100%;
+  padding: 13px 16px 13px 46px;
+  border-radius: 10px;
+  border: 1.5px solid #E2E8F0;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hp-search-input:focus {
+  border-color: #0EA5A0;
+  box-shadow: 0 0 0 3px rgba(14, 165, 160, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════
+   DOCTOR LIST WRAPPER
+═══════════════════════════════════════════════════ */
+.hp-doctors-wrap {
+  padding: 28px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* no results */
+.hp-no-results {
+  text-align: center;
+  padding: 56px 20px;
+  color: #94A3B8;
+}
+.hp-no-results__icon { font-size: 3rem; margin-bottom: 12px; }
+.hp-no-results__title {
+  font-weight: 600;
+  color: #64748B;
+  font-size: 15px;
+  margin: 0;
+}
+.hp-no-results__sub {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ═══════════════════════════════════════════════════
+   EMERGENCY BANNER
+═══════════════════════════════════════════════════ */
+.hp-emergency-banner {
+  background: linear-gradient(135deg, #FF6B6B, #E53E3E);
+  border-radius: 14px;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0 48px 48px;
+}
+
+.hp-emergency__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hp-emergency__icon { font-size: 2.5rem; }
+
+.hp-emergency__title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0;
+}
+.hp-emergency__sub {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  margin: 3px 0 0;
+}
+
+.hp-emergency__btn {
+  background: #ffffff;
+  color: #E53E3E;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  transition: transform 0.15s;
+}
+.hp-emergency__btn:hover { transform: scale(1.04); }
+
+/* ═══════════════════════════════════════════════════
+   SERVICES SECTION
+═══════════════════════════════════════════════════ */
+.hp-section {
+  padding: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hp-section-header { margin-bottom: 28px; }
+
+.hp-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0A1628;
+  margin: 0 0 4px;
+}
+.hp-section-sub {
+  font-size: 13px;
+  color: #64748B;
+  margin: 0;
+}
+
+.hp-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.hp-service-card {
+  background: #ffffff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.hp-service-card:hover {
+  border-color: #0EA5A0;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(14, 165, 160, 0.12);
+}
+
+.hp-service-card__icon { font-size: 2.2rem; margin-bottom: 10px; }
+.hp-service-card__title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0A1628;
+  margin: 0 0 6px;
+}
+.hp-service-card__desc {
+  font-size: 12px;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+.hp-footer {
+  background: #0A1628;
+  color: #64748B;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+.hp-footer__accent { color: #0EA5A0; }
+
+/* ═══════════════════════════════════════════════════
+   FLOATING HELP BUTTON
+═══════════════════════════════════════════════════ */
+.hp-help-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0EA5A0;
+  color: #ffffff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(14, 165, 160, 0.4);
+  z-index: 999;
+  border: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.hp-help-btn:hover {
+  background: #0F6E56;
+  transform: scale(1.08);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hp-hero          { padding: 40px 20px; }
+  .hp-hero__img     { width: 120px; height: 120px; }
+  .hp-stat-item     { padding: 16px 18px; }
+  .hp-search-section,
+  .hp-doctors-wrap,
+  .hp-section       { padding-left: 20px; padding-right: 20px; }
+  .hp-emergency-banner { margin: 0 20px 36px; padding: 18px 20px; }
+  .hp-emergency-banner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ═══════════════════════════════════════════════════
+   NEARBY DOCTORS WRAPPER (location-based suggestion)
+═══════════════════════════════════════════════════ */
+.hp-nearby-wrap {
+  background: #F0F9F8;
+  border-top: 1.5px solid #E2E8F0;
+  border-bottom: 1.5px solid #E2E8F0;
+}

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+.ap-header, .ap-stats, .ap-table-card { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+/* ── HEADER ── */
+.ap-header {
+  background: linear-gradient(135deg, #0A1628 0%, #0D2844 100%);
+  border-radius: 16px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+}
+.ap-header__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+}
+.ap-header__sub {
+  color: #94A3B8;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ── STATS ── */
+.ap-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.ap-stat-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ap-stat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #E1F5EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.ap-stat-card__icon--green  { background: #DCFCE7; }
+.ap-stat-card__icon--orange { background: #FEF3C7; }
+
+.ap-stat-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #0A1628;
+  margin: 0;
+}
+.ap-stat-card p {
+  font-size: 12px;
+  color: #64748B;
+  margin: 2px 0 0;
+}
+
+/* ── TABLE CARD ── */
+.ap-table-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.ap-doctor  { font-weight: 500; color: #1E293B; }
+.ap-phone   { color: #64748B; font-size: 13px; }
+.ap-datetime { color: #1E293B; font-size: 13px; }
+
+/* ── REVIEW BUTTON ── */
+.ap-review-btn {
+  background: #FEF3C7;
+  color: #92400E;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.ap-review-btn:hover { background: #FDE68A; }
+
+.ap-review-disabled {
+  color: #CBD5E1;
+  font-size: 13px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .ap-header { padding: 22px 18px; }
+  .ap-table-card { padding: 12px; overflow-x: auto; }
+}

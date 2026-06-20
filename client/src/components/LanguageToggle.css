@@ -1,0 +1,25 @@
+/* ═══════════════════════════════════════════════════
+   LanguageToggle.css
+   Import in LanguageToggle.jsx:  import "./LanguageToggle.css";
+═══════════════════════════════════════════════════ */
+
+.lt-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background: transparent;
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.lt-btn:hover {
+  background: rgba(14, 165, 160, 0.1);
+  color: #0EA5A0;
+}
