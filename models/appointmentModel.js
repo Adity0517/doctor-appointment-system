@@ -64,6 +64,24 @@ tokenNumber: {
       type: String,
       default: null, // same as `date` — stored separately so token counting is unambiguous
     },
+     /* ════════ NEW: PAYMENT ════════ */
+    paymentStatus: {
+      type: String,
+      enum: ["unpaid", "paid", "failed"],
+      default: "unpaid",
+    },
+    paymentId: {
+      type: String,
+      default: "",
+    },
+    orderId: {
+      type: String,
+      default: "",
+    },
+    amountPaid: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

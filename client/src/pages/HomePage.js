@@ -6,7 +6,8 @@ import DoctorList from "../components/DoctorList";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import NearbyDoctors from "../components/NearbyDoctors";
-
+import LanguageFilter from "../components/LanguageFilter";
+import PhotoSymptomChecker from "../components/PhotoSymptomChecker";
 const SERVICES = [
   { icon: "🩺", title: "Expert Doctors", desc: "Consult verified, experienced specialists", action: null },
   { icon: "📅", title: "Easy Booking", desc: "Book appointments in a few clicks", action: null },
@@ -114,6 +115,7 @@ const HomePage = () => {
       <section className="hp-nearby-wrap">
         <NearbyDoctors />
       </section>
+      <PhotoSymptomChecker />
 
       {/* ══ SEARCH + DOCTOR LIST ══ */}
       <section className="hp-search-section" id="doctors-section">
@@ -123,6 +125,7 @@ const HomePage = () => {
             Showing {filteredDoctors.length} doctor
             {filteredDoctors.length !== 1 ? "s" : ""}
           </p>
+          <LanguageFilter/>
         </div>
         <div className="hp-search-wrap">
           <span className="hp-search-icon">🔍</span>

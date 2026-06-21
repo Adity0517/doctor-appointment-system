@@ -1,0 +1,38 @@
+/* ═══════════════════════════════════════════════════
+   VoiceSymptomInput.css
+   Import in VoiceSymptomInput.jsx:  import "./VoiceSymptomInput.css";
+═══════════════════════════════════════════════════ */
+
+.vsi-btn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #F0F9F8;
+  border: 1.5px solid #CDEEE8;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.vsi-btn:hover { background: #DFF3EF; }
+
+.vsi-btn--listening {
+  background: #FCEBEB;
+  border-color: #F09595;
+}
+
+.vsi-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #EF4444;
+  animation: vsi-pulse 1.4s ease-out infinite;
+}
+@keyframes vsi-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}

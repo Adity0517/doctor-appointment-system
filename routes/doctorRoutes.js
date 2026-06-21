@@ -35,4 +35,5 @@ authMiddleware,
 upload.single("file"),
 uploadPrescriptionController
 );
+
 module.exports = router;

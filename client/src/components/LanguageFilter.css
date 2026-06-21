@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════
+   LanguageFilter.css
+   Import in LanguageFilter.jsx:  import "./LanguageFilter.css";
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+.lf-section { font-family: 'Inter', sans-serif; box-sizing: border-box; padding: 32px 40px; max-width: 1200px; margin: 0 auto; }
+
+.lf-header { text-align: center; margin-bottom: 20px; }
+.lf-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: #0A1628;
+  margin: 0 0 4px;
+}
+.lf-sub { font-size: 13px; color: #64748B; margin: 0; }
+
+.lf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.lf-chip {
+  border: 1.5px solid #E2E8F0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  color: #475569;
+  transition: all 0.2s;
+}
+.lf-chip:hover { border-color: #0EA5A0; color: #0EA5A0; }
+.lf-chip--active {
+  background: #0EA5A0;
+  border-color: #0EA5A0;
+  color: #fff;
+}
+
+.lf-results { margin-top: 8px; }
+.lf-loading, .lf-empty {
+  text-align: center;
+  font-size: 13px;
+  color: #94A3B8;
+  padding: 20px 0;
+}
+
+.lf-doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.lf-doctor-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lf-doctor-card:hover {
+  border-color: #0EA5A0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(14, 165, 160, 0.12);
+}
+
+.lf-doctor-card__name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0A1628;
+  margin: 0 0 3px;
+}
+.lf-doctor-card__spec {
+  color: #0EA5A0;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.lf-doctor-card__langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.lf-lang-tag {
+  background: #F0F9F8;
+  color: #0F6E56;
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .lf-section { padding: 24px 16px; }
+}

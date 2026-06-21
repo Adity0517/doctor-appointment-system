@@ -6,6 +6,7 @@ import { Table, Tag } from "antd";
 import "./Appointments.css";
 import VideoConsultationButton from "./VideoConsultationButton";
 import QueueStatus from "../components/QueueStatus";
+import ReviewButton from "../components/ReviewButton";
 const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
 
@@ -79,15 +80,15 @@ const Appointments = () => {
   ),
 },
     {
-      title: "Review",
-      dataIndex: "review",
-      render: (text, record) =>
-        record.status === "approved" ? (
-          <button className="ap-review-btn">⭐ Give Review</button>
-        ) : (
-          <span className="ap-review-disabled">—</span>
-        ),
-    },
+  title: "Review",
+  dataIndex: "review",
+  render: (text, record) =>
+    record.status === "approved" ? (
+      <ReviewButton appointment={record} />
+    ) : (
+      <span className="ap-review-disabled">—</span>
+    ),
+},
     {
 title:"Prescription",
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "antd";
 import "./Doctorlist.css";
+import DoctorRatingSummary from "./DoctorRatingSummary";
 
 const DoctorList = ({ doctor }) => {
   const navigate = useNavigate();
@@ -68,12 +69,11 @@ const DoctorList = ({ doctor }) => {
         <h5 className="dl-card__name">
           Dr. {doctor.firstName} {doctor.lastName}
         </h5>
-        <div className="dl-card__rating">
-          <span>⭐ 4.8/5</span>
-          <span className="dl-card__reviews">125 reviews</span>
-        </div>
+         
       </div>
-
+      <div>
+      <DoctorRatingSummary doctorId={doctor._id} compact />
+</div>
       {/* ── body / info rows ── */}
       <div className="dl-card__body">
         <div className="dl-info-row">

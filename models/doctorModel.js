@@ -32,6 +32,10 @@ const doctorSchema = new mongoose.Schema(
       type: String,
       required: [true, "specialization is require"],
     },
+     languagesSpoken: {
+      type: [String],
+      default: ["English"],
+  },
     experience: {
       type: String,
       required: [true, "experience is required"],
@@ -55,6 +59,7 @@ const doctorSchema = new mongoose.Schema(
       type: Object,
       required: [true, "work timing is required"],
     },
+    
   },
   { timestamps: true }
 

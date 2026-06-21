@@ -26,6 +26,10 @@ app.use("/api/v1/video", require("./routes/videoconsultationRoutes"));
 app.use("/api/v1/symptom-checker", require("./routes/symptomCheckerRoutes"));
 app.use("/api/v1/location", require("./routes/locationRoutes"));
 app.use("/api/v1/queue", require("./routes/queueRoutes"));
+app.use("/api/v1/review", require("./routes/reviewRoutes"));
+app.use("/api/v1/payment", require("./routes/paymentRoutes"));
+app.use("/api/v1/language", require("./routes/languageRoutes"));
+app.use("/api/v1/photo-symptom", require("./routes/photoSymptomRoutes"));
 //port
 const port = process.env.PORT || 8080;
 //listen port

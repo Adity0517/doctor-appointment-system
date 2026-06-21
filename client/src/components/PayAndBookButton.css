@@ -1,0 +1,26 @@
+/* ═══════════════════════════════════════════════════
+   PayAndBookButton.css
+   Import in PayAndBookButton.jsx:  import "./PayAndBookButton.css";
+═══════════════════════════════════════════════════ */
+
+.pb-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #0EA5A0, #0F6E56);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.pb-btn:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.pb-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

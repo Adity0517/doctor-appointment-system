@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./SymptomChecker.css";
+import VoiceSymptomInput from "./VoiceSymptomInput";
 
 /**
  * Floating AI Symptom Checker widget.
@@ -150,11 +151,11 @@ const SymptomChecker = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
             />
+            <VoiceSymptomInput onResult={(text) => setInput(text)} />
             <button className="sc-send-btn" onClick={handleSend} disabled={loading}>
               ➤
             </button>
           </div>
-
           <p className="sc-disclaimer">
             ⚠️ Not a substitute for professional medical advice.
           </p>

@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════
+   DoctorRatingSummary.css
+   Import in DoctorRatingSummary.jsx:  import "./DoctorRatingSummary.css";
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+/* ── compact (for doctor cards) ── */
+.drs-compact {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #F59E0B;
+}
+.drs-compact-count {
+  color: #94A3B8;
+  font-weight: 400;
+}
+.drs-compact-empty {
+  font-size: 11.5px;
+  color: #CBD5E1;
+  font-style: italic;
+}
+
+/* ── full card ── */
+.drs-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 22px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 16px;
+}
+
+.drs-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #F1F5F9;
+  margin-bottom: 16px;
+}
+
+.drs-summary__score {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0A1628;
+}
+
+.drs-summary__stars { display: flex; gap: 2px; margin-bottom: 4px; }
+.drs-star { font-size: 16px; color: #E2E8F0; }
+.drs-star--filled { color: #F59E0B; }
+
+.drs-summary__count {
+  font-size: 12.5px;
+  color: #64748B;
+  margin: 0;
+}
+
+.drs-empty {
+  text-align: center;
+  font-size: 13px;
+  color: #94A3B8;
+  padding: 20px 0;
+}
+
+/* ── review list ── */
+.drs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.drs-review {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.drs-review:last-child { border-bottom: none; padding-bottom: 0; }
+
+.drs-review__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.drs-review__name {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #0A1628;
+}
+.drs-review__stars {
+  color: #F59E0B;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.drs-review__stars--empty { color: #E2E8F0; }
+
+.drs-review__comment {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 4px 0;
+}
+
+.drs-review__date {
+  font-size: 11px;
+  color: #94A3B8;
+  margin: 2px 0 0;
+}
