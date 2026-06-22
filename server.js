@@ -1,3 +1,4 @@
+const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
@@ -13,7 +14,10 @@ connectDB();
 
 //rest obejct
 const app = express();
-
+app.use(cors({
+  origin: ["http://localhost:3000", "http://localhost:3001"],
+  credentials: true,
+}));
 //middlewares
 app.use(express.json());
 app.use(moragan("dev"));
