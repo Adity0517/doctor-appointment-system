@@ -8,11 +8,12 @@ import "./HomePage.css";
 import NearbyDoctors from "../components/NearbyDoctors";
 import LanguageFilter from "../components/LanguageFilter";
 import PhotoSymptomChecker from "../components/PhotoSymptomChecker";
+
 const SERVICES = [
-  { icon: "🩺", title: "Expert Doctors", desc: "Consult verified, experienced specialists", action: null },
-  { icon: "📅", title: "Easy Booking", desc: "Book appointments in a few clicks", action: null },
-  { icon: "⚖️", title: "BMI Calculator", desc: "Check your Body Mass Index instantly", action: "/bmi" },
-  { icon: "🔒", title: "Secure Records", desc: "Your health data stays private", action: null },
+  { icon: "🩺", title: "Expert Doctors",   desc: "Consult verified, experienced specialists",   action: null },
+  { icon: "📅", title: "Easy Booking",     desc: "Book appointments in a few clicks",            action: null },
+  { icon: "⚖️", title: "BMI Calculator",  desc: "Check your Body Mass Index instantly",         action: "/bmi" },
+  { icon: "🔒", title: "Secure Records",   desc: "Your health data stays private",               action: null },
 ];
 
 const STATS = [
@@ -26,9 +27,8 @@ const STATS = [
 const HomePage = () => {
   const navigate = useNavigate();
   const [doctors, setDoctors] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch]   = useState("");
 
-  /* ── fetch all doctors ── */
   const getUserData = async () => {
     try {
       const res = await axios.get("/api/v1/user/getAllDoctors", {
@@ -42,11 +42,8 @@ const HomePage = () => {
 
   useEffect(() => { getUserData(); }, []);
 
-  /* ── filtered list ── */
   const filteredDoctors = doctors.filter((doc) =>
-    `${doc.firstName} ${doc.lastName}`
-      .toLowerCase()
-      .includes(search.toLowerCase())
+    `${doc.firstName} ${doc.lastName}`.toLowerCase().includes(search.toLowerCase())
   );
 
   const scrollToDoctors = () =>
@@ -55,7 +52,7 @@ const HomePage = () => {
   return (
     <Layout>
 
-      {/* ══ HERO ══ */}
+      {/* ══ 1. HERO ══ */}
       <section className="hp-hero">
         <div className="hp-hero__left">
           <span className="hp-hero__badge">
@@ -74,10 +71,7 @@ const HomePage = () => {
             <button className="hp-btn-primary" onClick={scrollToDoctors}>
               Book Appointment
             </button>
-            <button
-              className="hp-btn-outline"
-              onClick={() => alert("Emergency Number: 108")}
-            >
+            <button className="hp-btn-outline" onClick={() => alert("Emergency Number: 108")}>
               🚑 Emergency: 108
             </button>
           </div>
@@ -89,7 +83,7 @@ const HomePage = () => {
         />
       </section>
 
-      {/* ══ STATS BAR ══ */}
+      {/* ══ 2. STATS BAR ══ */}
       <div className="hp-stats-bar">
         {STATS.map((s, i) => (
           <div className="hp-stat-item" key={i}>
@@ -101,7 +95,7 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* ══ HEALTH TICKER ══ */}
+      {/* ══ 3. HEALTH TICKER ══ */}
       <div className="hp-ticker">
         <marquee behavior="scroll" direction="left" scrollamount="5">
           🥗 Eat Healthy &nbsp;•&nbsp; 💧 Drink 8 Glasses of Water Daily
@@ -111,13 +105,27 @@ const HomePage = () => {
         </marquee>
       </div>
 
-      {/* ══ NEARBY DOCTORS (location-based) ══ */}
-      <section className="hp-nearby-wrap">
-        <NearbyDoctors />
-      </section>
-      <PhotoSymptomChecker />
+      {/* ══ 4. TOOLS ROW — Photo Checker + Nearby Doctors side by side ══ */}
+      <section className="hp-tools-section">
+        <div className="hp-tools-grid">
+          {/* Left: Symptom Photo Checker */}
+          <div className="hp-tool-card">
+            <PhotoSymptomChecker />
+          </div>
 
-      {/* ══ SEARCH + DOCTOR LIST ══ */}
+          {/* Right: Nearby Doctors */}
+          <div className="hp-tool-card">
+            <NearbyDoctors />
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 5. LANGUAGE FILTER ══ */}
+      <section className="hp-lang-section">
+        <LanguageFilter />
+      </section>
+
+      {/* ══ 6. SEARCH + DOCTOR LIST ══ */}
       <section className="hp-search-section" id="doctors-section">
         <div className="hp-search-header">
           <h2 className="hp-section-title">Available Doctors</h2>
@@ -125,7 +133,6 @@ const HomePage = () => {
             Showing {filteredDoctors.length} doctor
             {filteredDoctors.length !== 1 ? "s" : ""}
           </p>
-          <LanguageFilter/>
         </div>
         <div className="hp-search-wrap">
           <span className="hp-search-icon">🔍</span>
@@ -154,7 +161,7 @@ const HomePage = () => {
         )}
       </div>
 
-      {/* ══ EMERGENCY BANNER ══ */}
+      {/* ══ 7. EMERGENCY BANNER ══ */}
       <div className="hp-emergency-banner">
         <div className="hp-emergency__left">
           <span className="hp-emergency__icon">🚑</span>
@@ -165,15 +172,12 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        <button
-          className="hp-emergency__btn"
-          onClick={() => alert("Emergency Number: 108")}
-        >
+        <button className="hp-emergency__btn" onClick={() => alert("Emergency Number: 108")}>
           Call 108
         </button>
       </div>
 
-      {/* ══ SERVICES ══ */}
+      {/* ══ 8. SERVICES ══ */}
       <section className="hp-section">
         <div className="hp-section-header">
           <h2 className="hp-section-title">Our Services</h2>
@@ -194,13 +198,13 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ══ FOOTER ══ */}
+      {/* ══ 9. FOOTER ══ */}
       <footer className="hp-footer">
         © 2026 HealthCare+ &nbsp;|&nbsp; Doctor Appointment System &nbsp;|&nbsp;
         <span className="hp-footer__accent">Made with ❤️ for better healthcare</span>
       </footer>
 
-      {/* ══ FLOATING HELP BUTTON ══ */}
+      {/* ══ FLOATING HELP ══ */}
       <button
         className="hp-help-btn"
         onClick={() => alert("Customer Support Coming Soon")}

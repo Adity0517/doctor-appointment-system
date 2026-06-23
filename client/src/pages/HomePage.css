@@ -444,3 +444,51 @@
   border-top: 1.5px solid #E2E8F0;
   border-bottom: 1.5px solid #E2E8F0;
 }
+
+/* ═══════════════════════════════════════════════════
+   TOOLS SECTION — PhotoSymptomChecker + NearbyDoctors
+   side by side on desktop, stacked on mobile
+═══════════════════════════════════════════════════ */
+.hp-tools-section {
+  background: #F0F9F8;
+  border-top: 1.5px solid #E2E8F0;
+  border-bottom: 1.5px solid #E2E8F0;
+  padding: 40px 40px;
+}
+
+.hp-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.hp-tool-card {
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════
+   LANGUAGE FILTER SECTION
+═══════════════════════════════════════════════════ */
+.hp-lang-section {
+  background: #fff;
+  border-bottom: 1.5px solid #E2E8F0;
+  padding: 8px 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hp-tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-tools-section {
+    padding: 24px 16px;
+  }
+}
