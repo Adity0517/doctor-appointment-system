@@ -61,35 +61,6 @@ const BookingPage = () => {
   };
 
   /* ── book appointment ── */
-  const handleBooking = async () => {
-    if (!date || !time) {
-      return message.warning("Date & Time Required");
-    }
-    try {
-      dispatch(showLoading());
-      const res = await axios.post(
-        "/api/v1/user/book-appointment",
-        {
-          doctorId: params.doctorId,
-          userId: user._id,
-          doctorInfo: doctors,
-          userInfo: user,
-          date,
-          time,
-        },
-        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-      );
-      dispatch(hideLoading());
-      if (res.data.success) {
-        message.success(res.data.message);
-      }
-    } catch (error) {
-      dispatch(hideLoading());
-      console.log(error);
-      if (error.response) console.log(error.response.data);
-      message.error("Booking failed. Please try again.");
-    }
-  };
 
   useEffect(() => {
     getUserData();

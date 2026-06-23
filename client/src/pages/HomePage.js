@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  React, { useEffect, useState } from "react";
 import axios from "axios";
 import Layout from "./../components/Layout";
 import { Row } from "antd";
@@ -10,10 +10,10 @@ import LanguageFilter from "../components/LanguageFilter";
 import PhotoSymptomChecker from "../components/PhotoSymptomChecker";
 
 const SERVICES = [
-  { icon: "🩺", title: "Expert Doctors",   desc: "Consult verified, experienced specialists",   action: null },
-  { icon: "📅", title: "Easy Booking",     desc: "Book appointments in a few clicks",            action: null },
-  { icon: "⚖️", title: "BMI Calculator",  desc: "Check your Body Mass Index instantly",         action: "/bmi" },
-  { icon: "🔒", title: "Secure Records",   desc: "Your health data stays private",               action: null },
+  { icon: "🩺", title: "Expert Doctors",  desc: "Consult verified, experienced specialists",  action: null },
+  { icon: "📅", title: "Easy Booking",    desc: "Book appointments in a few clicks",           action: null },
+  { icon: "⚖️", title: "BMI Calculator", desc: "Check your Body Mass Index instantly",        action: "/bmi" },
+  { icon: "🔒", title: "Secure Records",  desc: "Your health data stays private",              action: null },
 ];
 
 const STATS = [
@@ -96,24 +96,25 @@ const HomePage = () => {
       </div>
 
       {/* ══ 3. HEALTH TICKER ══ */}
-      <div className="hp-ticker">
-        <marquee behavior="scroll" direction="left" scrollamount="5">
-          🥗 Eat Healthy &nbsp;•&nbsp; 💧 Drink 8 Glasses of Water Daily
-          &nbsp;•&nbsp; 🏃 Exercise 30 Minutes &nbsp;•&nbsp; 😴 Sleep 7–8 Hours
-          &nbsp;•&nbsp; ❤️ Regular Checkups Save Lives &nbsp;•&nbsp; 🚭 Avoid
-          Smoking &nbsp;•&nbsp; 🧘 Manage Stress with Meditation
-        </marquee>
-      </div>
-
-      {/* ══ 4. TOOLS ROW — Photo Checker + Nearby Doctors side by side ══ */}
+     
+<div className="hp-ticker">
+  <div className="hp-ticker__inner">
+    🥗 Eat Healthy &nbsp;•&nbsp; 💧 Drink 8 Glasses of Water Daily
+    &nbsp;•&nbsp; 🏃 Exercise 30 Minutes &nbsp;•&nbsp; 😴 Sleep 7–8 Hours
+    &nbsp;•&nbsp; ❤️ Regular Checkups Save Lives &nbsp;•&nbsp; 🚭 Avoid
+    Smoking &nbsp;•&nbsp; 🧘 Manage Stress with Meditation
+  </div>
+</div>
+      {/* ══ 4. SMART TOOLS — Photo Checker + Nearby Doctors ══ */}
       <section className="hp-tools-section">
+        <div className="hp-tools-heading">
+          <h2>Smart Health Tools</h2>
+          <p>AI-powered features to help you find the right care</p>
+        </div>
         <div className="hp-tools-grid">
-          {/* Left: Symptom Photo Checker */}
           <div className="hp-tool-card">
             <PhotoSymptomChecker />
           </div>
-
-          {/* Right: Nearby Doctors */}
           <div className="hp-tool-card">
             <NearbyDoctors />
           </div>
